@@ -1,0 +1,65 @@
+﻿@model IEnumerable<QuanLyTro.Models.TTinChuTro>
+
+@{
+    ViewBag.Title = "DsachChuTro";
+    Layout = "~/Views/LayoutPage1.cshtml";
+}
+
+<h2>DsachChuTro</h2>
+
+<button type="button" class="btn btn-outline-warning text-bg-dark">
+    @Html.ActionLink("Thêm Chủ Trọ Mới", "ThemChuTro")
+</button>
+<table class="table" style="margin-top: 20px">
+    <tr>
+        <th>
+            TT
+        </th>
+        <th>
+            Họ Và Tên
+        </th>
+        <th>
+            Ngày Sinh
+        </th>
+        <th>
+            Số Điện Thoại
+        </th>
+        <th>
+            Nơi Ở
+        </th>
+        <th>
+            Số Lượng Phòng
+        </th>
+        <th>#</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TT)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HoTenChuTro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NgaySinh)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SoDienThoai)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NoiDKHoKhau)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SoLuongPhong)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.HoTenChuTro }) |
+                @Html.ActionLink("Details", "Details", new { id = item.HoTenChuTro }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.HoTenChuTro })
+            </td>
+        </tr>
+    }
+
+</table>
