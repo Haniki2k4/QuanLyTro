@@ -14,7 +14,6 @@ namespace QuanLyTro.Controllers
         {
             QLTTPTEntities db = new QLTTPTEntities();
             List<TTinNguoiThue> DsNThue = db.TTinNguoiThues.ToList();
-            return View(DsNThue);
         }
 
         public ActionResult DKiThue()
