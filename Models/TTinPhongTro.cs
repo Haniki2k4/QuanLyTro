@@ -23,7 +23,7 @@ namespace QuanLyTro.Models
         public string MaPhong { get; set; }
         public string DiaChi { get; set; }
         public decimal DienTich { get; set; }
-        public int GiaThue { get; set; }
+        public double GiaThue { get; set; }
         public bool TinhTrang { get; set; }
         public string HoTenChuTro { get; set; }
     

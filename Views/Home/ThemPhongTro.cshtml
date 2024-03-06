@@ -1,78 +1,83 @@
-﻿    @model QuanLyTro.Models.TTinPhongTro
+﻿@model QuanLyTro.Models.TTinPhongTro
 
 @{
     ViewBag.Title = "ThemPhongTro";
     Layout = "~/Views/LayoutPage1.cshtml";
 }
 
-<h2>ThemPhongTro</h2>
-
-@using (Html.BeginForm()) 
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h2>Thêm Phòng Trọ</h2>
+<div class="container1" style="margin-top: 50px">
+    <div class="col-md-8">
+        <h2>
+            Thêm Thông tin Phòng trọ
+        </h2>
         <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            <label>Mã Phòng: </label>
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.MaPhong, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.MaPhong, "", new { @class = "text-danger" })
-            </div>
-        </div>
+    </div>
 
-        <div class="form-group">
-            <label>Địa Chỉ: </label>
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.DiaChi, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.DiaChi, "", new { @class = "text-danger" })
-            </div>
-        </div>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
 
-        <div class="form-group">
-            <label>Diện Tích (m2): </label>
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.DienTich, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.DienTich, "", new { @class = "text-danger" })
+        <div class="form-horizontal">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                <label>Mã Phòng: </label>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.MaPhong, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.MaPhong, "", new { @class = "text-danger" })
+                </div>
             </div>
-        </div>
 
-        <div class="form-group">
-            <label>Giá Thuê: </label>
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.GiaThue, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.GiaThue, "", new { @class = "text-danger" })
+            <div class="form-group">
+                <label>Địa Chỉ: </label>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.DiaChi, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.DiaChi, "", new { @class = "text-danger" })
+                </div>
             </div>
-        </div>
 
-        <div class="form-group">
-            <label>Tình Trạng Phòng: </label>
-            <div class="col-md-10">
-                <div class="checkbox">
+            <div class="form-group">
+                <label>Diện Tích (m2): </label>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.DienTich, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.DienTich, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Giá Thuê (triệu đồng/tháng): </label>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.GiaThue, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.GiaThue, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Tình Trạng Phòng: </label>
+                <div class="col-md-10">
+                    <div class="checkbox">
                         <input type="radio" name="TinhTrang" value="1" />Còn Phòng
                         <input type="radio" name="TinhTrang" value="0" />Hết Phòng
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Người Cho Thuê:</label>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.HoTenChuTro, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.HoTenChuTro, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Nhập Mới." class="btn btn-warning" />
                 </div>
             </div>
         </div>
+    }
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.HoTenChuTro, "HoTenChuTro", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("HoTenChuTro", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.HoTenChuTro, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Nhập Mới." class="btn btn-warning" />
-            </div>
-        </div>
+    <div>
+        @Html.ActionLink("Back to List", "Index")
     </div>
-}
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
 </div>

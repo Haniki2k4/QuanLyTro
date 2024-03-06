@@ -212,6 +212,8 @@
     <Content Include="Views\ChuTro\DsachChuTro.cshtml" />
     <Content Include="Views\ChuTro\ThemChuTro.cshtml" />
     <Content Include="Views\ChuTro\UpdTTCTro.cshtml" />
+    <Content Include="Views\NguoiThue\DsachNguoiThue.cshtml" />
+    <Content Include="Views\NguoiThue\DKiThue.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -222,7 +224,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="design\img\" />
-    <Folder Include="Views\NguoiThue\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

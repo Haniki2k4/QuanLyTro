@@ -5,12 +5,12 @@
     Layout = "~/Views/LayoutPage1.cshtml";
 }
 
-<h2>DsachChuTro</h2>
+<h2>Danh Sách Người Cho Thuê</h2>
 
-<button type="button" class="btn btn-outline-warning text-bg-dark">
+<button type="button" class="btn btn-outline-warning text-bg-dark" style="margin-bottom: 20px">
     @Html.ActionLink("Thêm Chủ Trọ Mới", "ThemChuTro")
 </button>
-<table class="table" style="margin-top: 20px">
+<table class="table">
     <tr>
         <th>
             TT
@@ -43,7 +43,7 @@
                 @Html.DisplayFor(modelItem => item.HoTenChuTro)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.NgaySinh)
+                @string.Format("{0:dd/MM/yyyy}", item.NgaySinh)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.SoDienThoai)
@@ -55,9 +55,8 @@
                 @Html.DisplayFor(modelItem => item.SoLuongPhong)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.HoTenChuTro }) |
-                @Html.ActionLink("Details", "Details", new { id = item.HoTenChuTro }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.HoTenChuTro })
+                @Html.ActionLink("Chỉnh Sửa", "UpdTTCTro", new { id = item.HoTenChuTro }) |
+                @Html.ActionLink("Xóa", "Delete", new { id = item.HoTenChuTro })
             </td>
         </tr>
     }

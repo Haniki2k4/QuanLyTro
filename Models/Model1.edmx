@@ -50,7 +50,7 @@
           <Property Name="MaPhong" Type="varchar" MaxLength="6" Nullable="false" />
           <Property Name="DiaChi" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="DienTich" Type="decimal" Precision="5" Scale="2" Nullable="false" />
-          <Property Name="GiaThue" Type="int" Nullable="false" />
+          <Property Name="GiaThue" Type="float" Nullable="false" />
           <Property Name="TinhTrang" Type="bit" Nullable="false" />
           <Property Name="HoTenChuTro" Type="nvarchar" MaxLength="50" />
         </EntityType>
@@ -106,7 +106,7 @@
           <Property Name="SoDienThoai" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="NoiDKHoKhau" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="SoLuongPhong" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="TTinPhongTroes" Relationship="QLTTPTModel.FK_TTinPhongTro_TTinChuTro1" FromRole="TTinChuTro" ToRole="TTinPhongTro" />
+          <NavigationProperty Name="TTinPhongTroes" Relationship="QLTTPTModel.FK_TTinPhongTro_TTinChuTro" FromRole="TTinChuTro" ToRole="TTinPhongTro" />
         </EntityType>
         <EntityType Name="TTinNguoiThue">
           <Key>
@@ -133,11 +133,11 @@
           <Property Name="MaPhong" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="DiaChi" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="DienTich" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
-          <Property Name="GiaThue" Type="Int32" Nullable="false" />
+          <Property Name="GiaThue" Type="Double" Nullable="false" />
           <Property Name="TinhTrang" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="TTinNguoiThues" Relationship="Self.FK_TTinNguoiThue_TTinPhongTro" FromRole="TTinPhongTro" ToRole="TTinNguoiThue" />
           <Property Name="HoTenChuTro" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="TTinChuTro" Relationship="QLTTPTModel.FK_TTinPhongTro_TTinChuTro1" FromRole="TTinPhongTro" ToRole="TTinChuTro" />
+          <NavigationProperty Name="TTinChuTro" Relationship="QLTTPTModel.FK_TTinPhongTro_TTinChuTro" FromRole="TTinPhongTro" ToRole="TTinChuTro" />
         </EntityType>
         <Association Name="FK_TTinNguoiThue_TTinPhongTro">
           <End Role="TTinPhongTro" Type="Self.TTinPhongTro" Multiplicity="1" />
@@ -160,7 +160,7 @@
             <End Role="TTinNguoiThue" EntitySet="TTinNguoiThues" />
           </AssociationSet>
           <EntitySet Name="sysdiagrams" EntityType="QLTTPTModel.sysdiagram" />
-          <AssociationSet Name="FK_TTinPhongTro_TTinChuTro1" Association="QLTTPTModel.FK_TTinPhongTro_TTinChuTro1">
+          <AssociationSet Name="FK_TTinPhongTro_TTinChuTro" Association="QLTTPTModel.FK_TTinPhongTro_TTinChuTro">
             <End Role="TTinChuTro" EntitySet="TTinChuTroes" />
             <End Role="TTinPhongTro" EntitySet="TTinPhongTroes" />
           </AssociationSet>
@@ -175,7 +175,7 @@
           <Property Name="version" Type="Int32" />
           <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
-        <Association Name="FK_TTinPhongTro_TTinChuTro1">
+        <Association Name="FK_TTinPhongTro_TTinChuTro">
           <End Type="QLTTPTModel.TTinChuTro" Role="TTinChuTro" Multiplicity="0..1" />
           <End Type="QLTTPTModel.TTinPhongTro" Role="TTinPhongTro" Multiplicity="*" />
           <ReferentialConstraint>

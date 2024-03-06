@@ -24,12 +24,17 @@ namespace QuanLyTro.Controllers
         [HttpPost]
         public ActionResult ThemChuTro(TTinChuTro model)
         {
+            if (model.SoLuongPhong <= 0)
+            {
+                ModelState.AddModelError("", "Bạn cần nhập số lương phòng chính xác.");
+                return View(model);
+            }
             if (ModelState.IsValid == true)
             {
                 QLTTPTEntities db = new QLTTPTEntities(); 
                 if (db.TTinChuTroes.Any(m => m.TT == model.TT))
                 {
-                    ModelState.AddModelError("", "Thông tin đã tồn tại");
+                    ModelState.AddModelError("", "Thông tin đã tồn tại.");
                     return View(model);
                 }
                 db.TTinChuTroes.Add(model);
@@ -42,23 +47,36 @@ namespace QuanLyTro.Controllers
                 return View(model);
             }
         }
-        public ActionResult UpdTTCTro(int id)
+        public ActionResult UpdTTCTro(string id)
         {
             QLTTPTEntities db = new QLTTPTEntities();
-            TTinChuTro model = db.TTinChuTroes.SingleOrDefault(m => m.TT == id);
+            TTinChuTro model = db.TTinChuTroes.SingleOrDefault(m => m.HoTenChuTro == id);
             return View(model);
         }
         [HttpPost]
         public ActionResult UpdTTCTro(TTinChuTro model)
         {
-            QLTTPTEntities db = new QLTTPTEntities();
-            var updCT = db.TTinChuTroes.Find(model.TT);
-            updCT.NgaySinh = model.NgaySinh;
-            updCT.SoLuongPhong = model.SoLuongPhong;
-            updCT.NoiDKHoKhau = model.NoiDKHoKhau;
-            updCT.SoDienThoai = model.SoDienThoai;
-            db.SaveChanges();
-            return RedirectToAction("DsachChuTro");
+            if (model.SoLuongPhong <= 0)
+            {
+                ModelState.AddModelError("", "Bạn cần nhập số lương phòng chính xác.");
+                return View(model);
+            }
+            if (ModelState.IsValid == true)
+            {
+                QLTTPTEntities db = new QLTTPTEntities();
+                var updCT = db.TTinChuTroes.Find(model.HoTenChuTro);
+                updCT.NgaySinh = model.NgaySinh;
+                updCT.SoLuongPhong = model.SoLuongPhong;
+                updCT.NoiDKHoKhau = model.NoiDKHoKhau;
+                updCT.SoDienThoai = model.SoDienThoai;
+                db.SaveChanges();
+                return RedirectToAction("DsachChuTro");
+            }
+            else
+            {
+                ModelState.AddModelError("", "Lỗi nhập dữ liệu.");
+                return View(model);
+            }
         }
     }
 }

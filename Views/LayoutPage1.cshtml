@@ -9,28 +9,34 @@
 
 </head>
 <body>
-    <div class="h1">
-        Quản Lý Phòng Trọ
-    </div>
-    <!-- Menu -->
     <div class="container">
-        <ul class="simple-menu">
-            <li>
-                <a href="~/Home" class="nav-item-@Html.Raw(ViewBag.active == 1 ? "active":"")">
-                    <span>Trang Chủ</span>
-                </a>
-            </li>
-            <li>
-                <a href="~/ChuTro/DsachChuTro" class="nav-item-@Html.Raw(ViewBag.active == 3 ? "active":"")">
-                    <span>Người Cho Thuê</span>
-                </a>
-            </li>
-            <li>
-                <a href="~/Order/ListOrder" class="nav-item-@Html.Raw(ViewBag.active == 4 ? "active":"")">
-                    <span>Người Thuê Trọ</span>
-                </a>
-            </li>
-        </ul>
+        <div class="row">
+            <!-- Menu -->
+            <div class="col-md-8">
+                <ul class="simple-menu">
+                    <li>
+                        <a href="~/Home" class="nav-item-@Html.Raw(ViewBag.active == 1 ? "active":"")">
+                            <span>Trang Chủ</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="~/ChuTro/DsachChuTro" class="nav-item-@Html.Raw(ViewBag.active == 3 ? "active":"")">
+                            <span>Người Cho Thuê</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="~/NguoiThue/DsachNguoiThue" class="nav-item-@Html.Raw(ViewBag.active == 4 ? "active":"")">
+                            <span>Người Thuê Trọ</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <div class="h3">
+                    Quản Lý Phòng Trọ
+                </div>
+            </div>
+        </div>
     </div>
     <div class="header1">
         @ViewBag.header1

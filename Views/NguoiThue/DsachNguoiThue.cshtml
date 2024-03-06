@@ -1,0 +1,107 @@
+﻿@model IEnumerable<QuanLyTro.Models.TTinNguoiThue>
+
+@{
+    ViewBag.Title = "DsachNguoiThue";
+    Layout = "~/Views/LayoutPage1.cshtml";
+}
+
+<h2>Danh Sách Người Thuê</h2>
+
+<button type="button" class="btn btn-outline-warning text-bg-primary" style="margin-bottom: 20px">
+    @Html.ActionLink("Thêm Thông tin Người thuê", "DKiThue")
+</button>
+<table class="table">
+    <tr>
+        <th>
+            TT
+        </th>
+        <th>
+            Họ và Tên
+        </th>
+        <th>
+            Giới Tính
+        </th>
+        <th>
+            Ngày Sinh
+        </th>
+        <th>
+            Số Điện Thoại
+        </th>
+        <th>
+            Nghề Nghiệp
+        </th>
+        <th>
+            Nơi Đki Tạm Trú
+        </th>
+        <th>
+            Ngày Vào
+        </th>
+        <th>
+            Ngày Trả
+        </th>
+        <th>
+            Tiền Đặt Cọc
+        </th>
+        <th>
+            Mã Hợp Đồng
+        </th>
+        <th>
+            Địa Chỉ Phòng Trọ
+        </th>
+        <th>#</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TT)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HoTenNguoiThue)
+            </td>
+            <td>
+                @if (item.GioiTinh == true)
+                {
+                    <p>Nam</p>
+                }
+                else
+                {
+                    <p>Nữ</p>
+                }
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NgaySinh)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SoDienThoai)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NgheNghiep)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NoiDKTamTru)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NgayVaoO)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NgayHetHD)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TienDatCoc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaHD)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TTinPhongTro.DiaChi)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "UpdNThue", new { id = item.TT }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.TT })
+            </td>
+        </tr>
+    }
+
+</table>

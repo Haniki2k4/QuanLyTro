@@ -10,7 +10,7 @@
         <EntityTypeShape EntityType="QLTTPTModel.TTinPhongTro" Width="1.5" PointX="3" PointY="1.5" IsExpanded="true" />
         <AssociationConnector Association="QLTTPTModel.FK_TTinNguoiThue_TTinPhongTro" ManuallyRouted="false" />
         <EntityTypeShape EntityType="QLTTPTModel.sysdiagram" Width="1.5" PointX="0.75" PointY="5.75" />
-        <AssociationConnector Association="QLTTPTModel.FK_TTinPhongTro_TTinChuTro1" />
+        <AssociationConnector Association="QLTTPTModel.FK_TTinPhongTro_TTinChuTro" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

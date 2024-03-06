@@ -14,12 +14,33 @@ namespace QuanLyTro.Controllers
         {
             QLTTPTEntities db = new QLTTPTEntities();
             List<TTinNguoiThue> DsNThue = db.TTinNguoiThues.ToList();
-            return View();
+            return View(DsNThue);
         }
 
         public ActionResult DKiThue()
         {
             return View();
+        }
+        [HttpPost]
+        public ActionResult DKiThue(TTinNguoiThue model)
+        {
+            if (ModelState.IsValid == true)
+            {
+                QLTTPTEntities db = new QLTTPTEntities();
+                if (db.TTinNguoiThues.Any(m => m.TT == model.TT))
+                {
+                    ModelState.AddModelError("", "Thông tin đã tồn tại.");
+                    return View(model);
+                }
+                db.TTinNguoiThues.Add(model);
+                db.SaveChanges();
+                return RedirectToAction("DsachNguoiThue");
+            }
+            else
+            {
+                ModelState.AddModelError("", "Lỗi nhập dữ liệu.");
+                return View(model);
+            }
         }
     }
 }

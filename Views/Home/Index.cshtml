@@ -1,61 +1,71 @@
 ﻿@model IEnumerable<QuanLyTro.Models.TTinPhongTro>
 
-@{
-    ViewBag.Title = "Index";
-    Layout = "~/Views/LayoutPage1.cshtml";
-}
+    @{
+        ViewBag.Title = "Index";
+        Layout = "~/Views/LayoutPage1.cshtml";
+    }
 
-<h2>Index</h2>
+    <h2>Phòng Trọ</h2>
 
-<p>
-    @Html.ActionLink("Thêm Phòng Trọ Mới", "ThemPhongTro")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            Mã Phòng
-        </th>
-        <th>
-            Địa Chỉ
-        </th>
-        <th>
-            Diện Tích (m2)
-        </th>
-        <th>
-            Giá Thuê
-        </th>
-        <th>
-            Tình Trạng
-        </th>
-        <th>
-            Chủ Trọ
-        </th>
-        <th>#</th>
-    </tr>
+    <button type="button" class="btn btn-outline-warning text-bg-dark" style="margin-bottom: 20px">
+        @Html.ActionLink("Thêm Phòng Trọ Mới", "ThemPhongTro")
+    </button>
+    <table class="table">
+        <tr>
+            <th>
+                Mã Phòng
+            </th>
+            <th>
+                Địa Chỉ
+            </th>
+            <th>
+                Diện Tích (m2)
+            </th>
+            <th>
+                Giá Thuê
+            </th>
+            <th>
+                Tình Trạng
+            </th>
+            <th>
+                Chủ Trọ
+            </th>
+            <th>#</th>
+        </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.DiaChi)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DienTich)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.GiaThue)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TinhTrang)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TTinChuTro.HoTenChuTro)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.MaPhong }) |
-            @Html.ActionLink("Details", "Details", new { id=item.MaPhong }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.MaPhong })
-        </td>
-    </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MaPhong)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DiaChi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DienTich)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GiaThue)
+                </td>
+                <td>
+                    @if (item.TinhTrang == true)
+                    {
+                        <p>Còn Phòng</p>
+                    }
+                    else
+                    {
+                        <p>Hết Phòng</p>
+                    }
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TTinChuTro.HoTenChuTro)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.MaPhong }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.MaPhong })
+                </td>
+            </tr>
+        }
 
-</table>
+    </table>
