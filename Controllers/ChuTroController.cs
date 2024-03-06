@@ -15,6 +15,7 @@ namespace QuanLyTro.Controllers
             List<TTinChuTro> DsCTro = db.TTinChuTroes.ToList();
             return View(DsCTro);
         }
+        
 
         public ActionResult ThemChuTro()
         {
@@ -40,6 +41,24 @@ namespace QuanLyTro.Controllers
                 ModelState.AddModelError("", "Lỗi nhập dữ liệu.");
                 return View(model);
             }
+        }
+        public ActionResult UpdTTCTro(int id)
+        {
+            QLTTPTEntities db = new QLTTPTEntities();
+            TTinChuTro model = db.TTinChuTroes.SingleOrDefault(m => m.TT == id);
+            return View(model);
+        }
+        [HttpPost]
+        public ActionResult UpdTTCTro(TTinChuTro model)
+        {
+            QLTTPTEntities db = new QLTTPTEntities();
+            var updCT = db.TTinChuTroes.Find(model.TT);
+            updCT.NgaySinh = model.NgaySinh;
+            updCT.SoLuongPhong = model.SoLuongPhong;
+            updCT.NoiDKHoKhau = model.NoiDKHoKhau;
+            updCT.SoDienThoai = model.SoDienThoai;
+            db.SaveChanges();
+            return RedirectToAction("DsachChuTro");
         }
     }
 }

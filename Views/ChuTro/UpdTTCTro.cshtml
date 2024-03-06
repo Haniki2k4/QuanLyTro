@@ -1,27 +1,20 @@
 ﻿@model QuanLyTro.Models.TTinChuTro
 
 @{
-    ViewBag.Title = "ThemChuTro";
+    ViewBag.Title = "UpdTTCTro";
     Layout = "~/Views/LayoutPage1.cshtml";
 }
 
-<h2>ThemChuTro</h2>
+<h2>UpdTTCTro</h2>
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h2>Thêm Chủ Trọ</h2>
+        <h2>Thông Tin Chủ Trọ</h2>
         <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            <label>Họ Tên Chủ Trọ:</label>
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.HoTenChuTro, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.HoTenChuTro, "", new { @class = "text-danger" })
-            </div>
-        </div>
+        @Html.HiddenFor(model => model.HoTenChuTro)
 
         <div class="form-group">
             <label>Ngày Sinh:</label>
@@ -57,7 +50,7 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-warning"/>
+                <input type="submit" value="Save" class="btn btn-warning" />
             </div>
         </div>
     </div>
