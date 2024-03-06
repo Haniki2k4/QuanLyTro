@@ -26,7 +26,7 @@ namespace QuanLyTro.Controllers
         {
             if (ModelState.IsValid == true)
             {
-                QLTTPTEntities db = new QLTTPTEntities();
+                QLTTPTEntities db = new QLTTPTEntities(); 
                 if (db.TTinChuTroes.Any(m => m.TT == model.TT))
                 {
                     ModelState.AddModelError("", "Thông tin đã tồn tại");

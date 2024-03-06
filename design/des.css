@@ -1,4 +1,10 @@
-﻿.simple-menu {
+﻿.container {
+    text-align: center;
+    padding: 25px 10px 0 10px;
+    background-color: yellow; 
+}
+
+.simple-menu {
     list-style-type: none;
     width: 100%;
     position: relative;
@@ -24,8 +30,8 @@
         .simple-menu li a {
             display: block;
             float: left;
-            color: #fff;
-            background: #1c7b57;
+            color: black;
+            background: #edff1b;
             line-height: 30px;
             text-align: center;
             font-size: 15px;
@@ -77,3 +83,12 @@ th {
     border-collapse: collapse;
 }
 
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: dimgrey;
+    color: white;
+    text-align: center;
+}
