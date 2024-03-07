@@ -118,6 +118,10 @@
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
     <Content Include="design\des.css" />
+    <Content Include="design\img\HNC101 .jpg" />
+    <Content Include="design\img\HNC102 .jpg" />
+    <Content Include="design\img\HOLA1 .jpg" />
+    <Content Include="design\img\OCP1203 .jpg" />
     <Content Include="Global.asax" />
     <Content Include="Models\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -217,6 +221,7 @@
     <Content Include="Views\NguoiThue\DetailNgThue.cshtml" />
     <Content Include="Views\Home\UpdTTPTro.cshtml" />
     <Content Include="Views\NguoiThue\UpdTTNgThue.cshtml" />
+    <Content Include="Views\Home\DetailPTro.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -226,7 +231,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="design\img\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

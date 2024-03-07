@@ -25,10 +25,8 @@ namespace QuanLyTro.Models
         public decimal DienTich { get; set; }
         public double GiaThue { get; set; }
         public bool TinhTrang { get; set; }
-        public string HoTenChuTro { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TTinNguoiThue> TTinNguoiThues { get; set; }
-        public virtual TTinChuTro TTinChuTro { get; set; }
     }
 }

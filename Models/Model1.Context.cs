@@ -25,9 +25,9 @@ namespace QuanLyTro.Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<TTinChuTro> TTinChuTroes { get; set; }
         public virtual DbSet<TTinNguoiThue> TTinNguoiThues { get; set; }
         public virtual DbSet<TTinPhongTro> TTinPhongTroes { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
     }
 }

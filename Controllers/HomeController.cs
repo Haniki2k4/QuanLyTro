@@ -81,6 +81,12 @@ namespace QuanLyTro.Controllers
             }
         }
 
+        public ActionResult DetailPTro(string id)
+        {
+            QLTTPTEntities db = new QLTTPTEntities();
+            TTinPhongTro model = db.TTinPhongTroes.SingleOrDefault(m => m.MaPhong == id);
+            return View(model);
+        }
         public ActionResult XoaTTinPTro(string id)
         {
             QLTTPTEntities db = new QLTTPTEntities();

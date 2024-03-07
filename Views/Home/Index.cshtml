@@ -10,60 +10,39 @@
 <button type="button" class="btn btn-outline-warning text-bg-dark" style="margin-bottom: 20px">
     @Html.ActionLink("Thêm Phòng Trọ Mới", "ThemPhongTro")
 </button>
-<table class="table">
-    <tr>
-        <th>
-            Mã Phòng
-        </th>
-        <th>
-            Địa Chỉ
-        </th>
-        <th>
-            Diện Tích (m2)
-        </th>
-        <th>
-            Giá Thuê
-        </th>
-        <th>
-            Tình Trạng
-        </th>
-        <th>#</th>
-    </tr>
 
+
+<div class="container-item">
     @foreach (var item in Model)
     {
-        <tr>
-            <td>
+        <div class="item">
+            <img src="~/design/img/@item.MaPhong .jpg">
+            <p href="~/Home/DetailPTro?id=@item.MaPhong" style="display:inline-block">
                 @Html.DisplayFor(modelItem => item.MaPhong)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DiaChi)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DienTich)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.GiaThue)
-            </td>
-            <td>
-                @if (item.TinhTrang == true)
-                {
-                    <p>Còn Phòng</p>
-                }
-                else
-                {
-                    <p>Hết Phòng</p>
-                }
-            </td>
-            <td>
-                <button class="btn btn-outline-warning text-bg-dark">
-                    @Html.ActionLink("Chỉnh sửa", "UpdTTPTro", new { id = item.MaPhong })
-                </button>
-                <button class="btn btn-outline-warning text-bg-dark">
-                    @Html.ActionLink("Xóa", "XoaTTinPTro", new { id = item.MaPhong })
-                </button>
-            </td>
-        </tr>
-    }
+            </p>
 
-</table>
+            @if (item.TinhTrang == true)
+            {
+                <p style="display:inline-block; color:brown">
+                    ^o^ Còn Phòng ^o^
+                </p>
+            }
+            else
+            {
+                <p style="display: inline-block; color: brown">
+                    ╯︿╰ Hết Phòng ╯︿╰
+                </p>
+            }
+
+            <button class="btn btn-outline-warning text-bg-dark">
+                @Html.ActionLink("Chỉnh sửa", "UpdTTPTro", new { id = item.MaPhong })
+            </button>
+            <button class="btn btn-outline-warning text-bg-dark">
+                @Html.ActionLink("Chi tiết", "DetailPTro", new { id = item.MaPhong })
+            </button>
+            <button class="btn btn-outline-warning text-bg-dark">
+                @Html.ActionLink("Xóa", "XoaTTinPTro", new { id = item.MaPhong })
+            </button>
+        </div>
+    }
+</div>

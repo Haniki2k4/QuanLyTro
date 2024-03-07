@@ -14,20 +14,11 @@ namespace QuanLyTro.Models
     
     public partial class TTinChuTro
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public TTinChuTro()
-        {
-            this.TTinPhongTroes = new HashSet<TTinPhongTro>();
-        }
-    
         public int TT { get; set; }
         public string HoTenChuTro { get; set; }
         public System.DateTime NgaySinh { get; set; }
         public string SoDienThoai { get; set; }
         public string NoiDKHoKhau { get; set; }
         public int SoLuongPhong { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TTinPhongTro> TTinPhongTroes { get; set; }
     }
 }

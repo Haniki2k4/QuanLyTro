@@ -1,0 +1,52 @@
+﻿@model QuanLyTro.Models.TTinPhongTro
+
+@{
+    ViewBag.Title = "DetailPTro";
+    Layout = "~/Views/LayoutPage1.cshtml";
+}
+
+
+<div class="modal-content">
+    <div class="modal-header">
+        <span class="close">&times;</span>
+        <h2 style="position:center;">Thông tin Phòng trọ</h2>
+    </div>
+    <div class="modal-content">
+        <dl class="dl-horizontal" style="display:inline-block">
+            <dt>
+                Địa Chỉ:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DiaChi)
+            </dd>
+
+            <dt>
+                Diện Tích
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DienTich)
+            </dd>
+
+            <dt>
+                Giá Thuê:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.GiaThue)
+            </dd>
+
+
+        </dl>
+        <p>
+            <button class="btn btn-outline-warning text-bg-dark">
+                @Html.ActionLink("Edit", "UpdTTPTro", new { id = Model.MaPhong })
+            </button>
+            @Html.ActionLink("Quay lại danh sách", "Index")
+        </p>
+    </div>
+    <div class="modal-footer">
+        <h3> Thông tin Phòng trọ</h3>
+    </div>
+</div>
