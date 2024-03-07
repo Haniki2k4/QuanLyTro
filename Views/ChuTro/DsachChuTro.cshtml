@@ -55,8 +55,12 @@
                 @Html.DisplayFor(modelItem => item.SoLuongPhong)
             </td>
             <td>
-                @Html.ActionLink("Chỉnh Sửa", "UpdTTCTro", new { id = item.HoTenChuTro }) |
-                @Html.ActionLink("Xóa", "Delete", new { id = item.HoTenChuTro })
+                <button class="btn btn-outline-warning text-bg-dark">
+                    @Html.ActionLink("Chỉnh Sửa", "UpdTTCTro", new { id = item.HoTenChuTro })
+                </button>
+                <button class="btn btn-outline-warning text-bg-dark">
+                    @Html.ActionLink("Xóa", "XoaTTinCTro", new { id = item.HoTenChuTro })
+                </button>
             </td>
         </tr>
     }

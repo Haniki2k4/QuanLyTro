@@ -48,5 +48,47 @@ namespace QuanLyTro.Controllers
                 return View(model);
             }
         }
+
+        public ActionResult UpdTTPTro(string id)
+        {
+            QLTTPTEntities db = new QLTTPTEntities();
+            TTinPhongTro model = db.TTinPhongTroes.SingleOrDefault(m => m.MaPhong == id);
+            return View(model);
+        }
+        [HttpPost]
+        public ActionResult UpdTTPTro(TTinPhongTro model)
+        {
+            if (model.DienTich <= 0)
+            {
+                ModelState.AddModelError("", "Bạn cần nhập diện tích chính xác.");
+                return View(model);
+            }
+            if (ModelState.IsValid == true)
+            {
+                QLTTPTEntities db = new QLTTPTEntities();
+                var updPT = db.TTinPhongTroes.Find(model.MaPhong);
+                updPT.DiaChi = model.DiaChi;
+                updPT.DienTich = model.DienTich;
+                updPT.TinhTrang = model.TinhTrang;
+                updPT.GiaThue = model.GiaThue;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                ModelState.AddModelError("", "Lỗi nhập dữ liệu.");
+                return View(model);
+            }
+        }
+
+        public ActionResult XoaTTinPTro(string id)
+        {
+            QLTTPTEntities db = new QLTTPTEntities();
+            var xoaPT = db.TTinPhongTroes.Find(id);
+            db.TTinPhongTroes.Remove(xoaPT);
+            db.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
     }
 }

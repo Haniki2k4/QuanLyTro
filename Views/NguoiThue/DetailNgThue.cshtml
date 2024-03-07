@@ -1,0 +1,133 @@
+﻿@model QuanLyTro.Models.TTinNguoiThue
+
+@{
+    ViewBag.Title = "DetailNgThue";
+    Layout = "~/Views/LayoutPage1.cshtml";
+}
+
+<div class="modal-content">
+    <div class="modal-header">
+        <span class="close">&times;</span>
+        <h2>Thông tin Người thuê.</h2>
+    </div>
+    <div class="modal-content">
+            <dl class="dl-horizontal">
+                    <dt>
+                        <label>Họ và Tên: </label>
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.HoTenNguoiThue)
+                    </dd>
+
+                    <dt>
+                        <label>Ngày Sinh: </label>
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.NgaySinh)
+                    </dd>
+
+                    <dt>
+                        <label>Số Điện Thoại: </label>
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.SoDienThoai)
+                    </dd>
+
+                    <dt>
+                        <label>Nghề Nghiệp: </label>
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.NgheNghiep)
+                    </dd>
+
+                    <dt>
+                        <label>Nơi Đăng Kí Tạm Trú: </label>
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.NoiDKTamTru)
+                    </dd>
+
+                    <dt>
+                        <label>Ngày Vào Ở: </label>
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.NgayVaoO)
+                    </dd>
+
+                    <dt>
+                        <label>Ngày Trả Phòng: </label>
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.NgayHetHD)
+                    </dd>
+
+                    <dt>
+                        <label>Đặt Cọc: </label>
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.TienDatCoc)
+                    </dd>
+
+                    <dt>
+                        <label>Mã Hợp Đồng: </label>
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.MaHD)
+                    </dd>
+
+                    <dt>
+                        <label>Địa Chỉ: </label>
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.TTinPhongTro.DiaChi)
+                    </dd>
+            </dl>
+        <p>
+            <button class="btn btn-outline-warning text-bg-dark">
+                @Html.ActionLink("Edit", "UpdNThue", new { id = Model.HoTenNguoiThue })
+            </button>
+            @Html.ActionLink("Back to List", "DsachNguoiThue")
+        </p>
+    </div>
+    <div class="modal-footer">
+        <h3> Thông tin Người thuê </h3>
+    </div>
+</div>
+
+
+<script>
+    // Get the modal
+    var modal = document.getElementById("myModal");
+
+    // Get the button that opens the modal
+    var btn = document.getElementById("myBtn");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks the button, open the modal
+    btn.onclick = function () {
+        modal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function () {
+        modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>

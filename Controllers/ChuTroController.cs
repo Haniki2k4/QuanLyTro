@@ -78,5 +78,15 @@ namespace QuanLyTro.Controllers
                 return View(model);
             }
         }
+
+        public ActionResult XoaTTinCTro(string id)
+        {
+            QLTTPTEntities db = new QLTTPTEntities();
+            var xoaTT = db.TTinChuTroes.Find(id);
+            db.TTinChuTroes.Remove(xoaTT);
+            db.SaveChanges();
+
+            return RedirectToAction("DsachChuTro");
+        }
     }
 }

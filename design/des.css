@@ -66,13 +66,15 @@
             }
 
 body {
+    margin-top: 50px;
     padding-left: 15px;
     padding-right: 15px;
-    min-height: 500vh;
+    min-height: 150vh;
 }
-.h2 {
-    
+.h2{
+    margin-top:30px;
 }
+
 .table {
     border: 1px solid black;
     border-collapse: collapse;
@@ -92,11 +94,88 @@ th {
 }
 
 .footer {
-    position: fixed;
+    position:fixed;
     left: 0;
     bottom: 0;
     width: 100%;
-    background-color: dimgrey;
-    color: white;
+    background-color: #d8d8d8;
+    color: black;
     text-align: center;
 }
+
+/* Modal Header */
+.modal-header {
+    padding: 2px 16px;
+    background-color: #ffd800;
+    color: white;
+}
+
+/* Modal Body */
+.modal-body {
+    padding: 2px 16px;
+}
+
+/* Modal Footer */
+.modal-footer {
+    padding: 2px 16px;
+    background-color: #ffd800;
+    color: white;
+}
+
+/* Modal Content */
+.modal-content {
+    position: relative;
+    background-color: #888;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+/* Add Animation */
+@keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0
+    }
+
+    to {
+        top: 0;
+        opacity: 1
+    }
+}
+
+.table {
+    border-collapse: collapse;
+    width: 100%;
+    color: #333;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
+    .table td {
+        border: 1px solid black;
+        border-collapse: collapse;
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    .table th {
+        text-align: center;
+        vertical-align: middle;
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+
+
+    .table tr:hover td {
+        background-color: #faf84c;
+    }
